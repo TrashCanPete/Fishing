@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class Cast : MonoBehaviour
 {
-
-    public bool castAnimation;
+    private Animator anim;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (castAnimation == true)
+
+        if (Input.GetKey(KeyCode.Space))
         {
-            GetComponent<Animation>().Play("Me_Cast_Animation");
+            anim.SetBool("buttonDown", true);
         }
-        if (Input.GetButtonDown("Space"))
+        else
         {
-            castAnimation = true;
+            anim.SetBool("buttonDown", false);
         }
     }
 }
