@@ -16,7 +16,8 @@ public class DayNight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.RotateAround(Vector3.zero, Vector3.right, rotateSpeed * Time.deltaTime);
-        transform.LookAt(Vector3.zero);
+        //This line rotates the directional light to 70 degrees and back to 0 .
+        transform.rotation = Quaternion.Euler(Mathf.PingPong(Time.time * 2, 70), transform.eulerAngles.y, transform.eulerAngles.z);
+       
     }
 }
